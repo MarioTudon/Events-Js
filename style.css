@@ -1,0 +1,228 @@
+:root {
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    user-select: none;
+}
+
+@keyframes Grow {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 0 100%;
+    grid-template-rows: 20% auto 10%;
+    background-color: #faf9f5;
+    transition: 1s ease;
+
+    &.unhide {
+        grid-template-columns: 15% 85%;
+    }
+}
+
+header {
+    grid-column: 2 / 3;
+    background-color: #242729;
+    color: white;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: auto;
+    position: relative;
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+        width: 2.5%;
+        cursor: pointer;
+    }
+
+    #qty {
+        position: absolute;
+        left: 3.2%;
+        top: 53%;
+        font-weight: 700;
+        font-size: 0.8rem;
+        background-color: white;
+        color: black;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        /* Alinea verticalmente */
+        justify-content: center;
+        /* Alinea horizontalmente */
+        text-align: center;
+        /* Opcional, para asegurar alineación centrada */
+        line-height: 1rem;
+        display: initial;
+
+        &.no-display {
+            display: none;
+        }
+
+        &.animate {
+            animation: Grow 0.5s ease;
+        }
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+        font-weight: 700;
+    }
+
+    nav {
+        margin: 0 0 0.5rem;
+        width: 30%;
+        display: flex;
+        justify-content: space-evenly;
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+}
+
+aside {
+    grid-row: 1 / 4;
+    background-color: #242729;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 0.1rem white;
+    overflow: hidden;
+
+    #shopping-cart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #4d5255;
+        width: 80%;
+        border-radius: 0.25rem;
+        border: solid 0.1rem white;
+        max-height: 30%;
+        min-height: 30%;
+        overflow: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        text-wrap: nowrap;
+
+        p {
+            color: white;
+            margin: 0.75rem 0;
+            font-weight: 600;
+        }
+    }
+
+    button {
+        color: white;
+        background-color: #ab6b12;
+        border: none;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-wrap: nowrap;
+        cursor: pointer;
+    }
+}
+
+main {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f7f5e9;
+        padding: 0.5rem;
+        border: solid 1px black;
+        width: 20%;
+        height: 80%;
+        box-shadow: 0.25rem 0.25rem 0.5rem black;
+        border-radius: 1rem;
+        transition: 1s ease;
+
+        &.unhide {
+            height: 70%;
+        }
+
+        .image-container {
+            width: 75%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 0 1rem;
+            box-shadow: 0.25rem 0.25rem 0.5rem black;
+            img {
+                width: 160%;
+            }
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0 0 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin: 0 0 1rem;
+            font-weight: 400;
+        }
+
+        button {
+            color: white;
+            background-color: #58ad31;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
+    grid-column: 2 / 3;
+    margin-top: auto;
+    background-color: #242729;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
